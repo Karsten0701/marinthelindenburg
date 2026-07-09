@@ -22,9 +22,10 @@ const experiences = [
     period: 'February 2026 - Present',
     points: [
       'Represent brands during promotional events and campaigns while creating positive customer interactions.',
-      'Engage with guests and consumers by sharing product information and encouraging participation.',
-      'Adapt communication style to connect with different audiences while maintaining professionalism and enthusiasm.',
-      'Develop skills in marketing, brand representation and guest engagement.',
+      'Engage with guests and consumers by providing product information and encouraging participation.',
+      'Adapt communication style to connect with different audiences.',
+      'Work independently while maintaining professionalism and enthusiasm.',
+      'Develop skills in marketing, brand representation, and guest engagement.',
     ],
   },
   {
@@ -33,8 +34,9 @@ const experiences = [
     period: 'March 2025 - August 2025',
     points: [
       'Provided friendly and attentive service in a fast-paced hospitality environment.',
-      'Created welcoming guest experiences through positive communication and attention to detail.',
-      'Collaborated with team members to support smooth daily operations and strong hospitality standards.',
+      'Created welcoming experiences for guests through positive communication and attention to detail.',
+      'Collaborated with team members to ensure smooth daily operations.',
+      'Learned the importance of hospitality standards and guest satisfaction.',
     ],
   },
   {
@@ -43,8 +45,9 @@ const experiences = [
     period: 'July 2024 - December 2024',
     points: [
       'Created and sold handmade crochet products at local markets.',
-      'Managed customer relationships, sales transactions and product presentation.',
-      'Built entrepreneurial skills through planning, organization, creativity and independent work.',
+      'Managed customer relationships, sales transactions, and product presentation.',
+      'Developed entrepreneurial skills, creativity, and confidence in interacting with customers.',
+      'Took responsibility for planning, organization, and independent work.',
     ],
   },
   {
@@ -53,8 +56,9 @@ const experiences = [
     period: 'April 2022 - June 2024',
     points: [
       'Delivered efficient and friendly service to customers in a busy retail environment.',
-      'Assisted customers with questions and helped ensure a positive shopping experience.',
-      'Handled transactions accurately while developing customer service, teamwork and problem-solving skills.',
+      'Assisted guests with questions and ensured a positive shopping experience.',
+      'Handled transactions accurately and responsibly.',
+      'Developed strong customer service, teamwork, and problem-solving skills.',
     ],
   },
 ]
@@ -62,38 +66,71 @@ const experiences = [
 const achievements = [
   {
     title: 'Student Council President',
-    text: 'Represented students, led meetings and acted as a communication link between students and school leadership.',
+    points: [
+      'Represented students and acted as a communication link between students and school leadership.',
+      'Led meetings and contributed to improving the student experience.',
+      'Developed leadership, teamwork, and decision-making skills.',
+    ],
   },
   {
     title: 'Municipal Youth Panel Member',
-    text: 'Participated in discussions with local representatives from 2021 to 2024, sharing ideas to support young people and community improvements.',
+    meta: '2021 - 2024',
+    points: [
+      'Participated in discussions with local representatives about topics affecting young people.',
+      'Shared ideas and perspectives to support community improvements.',
+      'Collaborated with other young people and professionals.',
+    ],
   },
   {
     title: 'Municipal Debate Tournament',
-    text: 'Winner of the Municipal Debate Tournament and runner-up in a separate edition, strengthening public speaking and persuasive communication.',
+    points: [
+      'Winner of the Municipal Debate Tournament.',
+      'Runner-up in a separate edition.',
+      'Strengthened public speaking, confidence, critical thinking, and persuasive communication skills.',
+    ],
   },
   {
     title: 'Lead Performer - High School Musical',
-    text: 'Performed the leading role in 2024, collaborating with performers, directors and production teams.',
+    meta: '2024',
+    points: [
+      "Performed the leading role in the school's musical production.",
+      'Collaborated with performers, directors, and production teams.',
+      'Developed stage presence, creativity, discipline, and confidence in front of audiences.',
+    ],
   },
 ]
 
 const skills = [
-  'Guest Experience',
-  'Customer Service',
+  'Guest Experience & Customer Service',
   'Hospitality Operations',
-  'Teamwork',
+  'Teamwork & Collaboration',
   'Cross-Cultural Communication',
   'Public Speaking',
   'Leadership',
   'Entertainment & Performance',
-  'Marketing',
+  'Marketing & Brand Representation',
   'Problem Solving',
   'Adaptability',
-  'Professionalism',
+  'Positive Attitude & Professionalism',
 ]
 
-const interests = ['Theme Parks & Attractions', 'Themed Entertainment', 'Dancing', 'Reading', 'Traveling', 'Friends & Family']
+const interests = [
+  'Theme Parks & Attractions',
+  'Themed Entertainment',
+  'Dancing',
+  'Reading',
+  'Traveling',
+  'Spending time with friends and family',
+]
+
+const themeParkPassion = [
+  'Lifelong passion for theme parks and immersive entertainment.',
+  'Visited Disney Parks in California, Florida, and Paris.',
+  'Visited Universal Parks in the United States.',
+  'Experienced many amusement and theme parks throughout Europe and North America.',
+  'Particularly inspired by Europa-Park and its focus on storytelling, attractions, and guest experiences.',
+  'Interested in how theme parks create emotional connections and memorable moments for guests.',
+]
 </script>
 
 <template>
@@ -144,7 +181,9 @@ const interests = ['Theme Parks & Attractions', 'Themed Entertainment', 'Dancing
           <p class="lead">
             Passionate first-year Attraction & Theme Park Management student with hands-on experience in guest
             service, hospitality, retail, marketing and entertainment. Skilled at creating positive interactions
-            through communication, teamwork and enthusiasm.
+            through strong communication, teamwork and enthusiasm. Experienced in leadership roles, public speaking,
+            and performance environments. Driven by a lifelong passion for themed entertainment and motivated to
+            contribute to memorable guest experiences as part of the Disney Academic Exchange Program.
           </p>
           <div class="highlight-list">
             <div v-for="item in highlights" :key="item" class="highlight-item">
@@ -198,7 +237,10 @@ const interests = ['Theme Parks & Attractions', 'Themed Entertainment', 'Dancing
         <div class="achievement-grid">
           <article v-for="achievement in achievements" :key="achievement.title" class="achievement-card">
             <h3>{{ achievement.title }}</h3>
-            <p>{{ achievement.text }}</p>
+            <p v-if="achievement.meta" class="achievement-meta">{{ achievement.meta }}</p>
+            <ul>
+              <li v-for="point in achievement.points" :key="point">{{ point }}</li>
+            </ul>
           </article>
         </div>
       </section>
@@ -218,12 +260,9 @@ const interests = ['Theme Parks & Attractions', 'Themed Entertainment', 'Dancing
           <p class="eyebrow">Theme Park Experience & Passion</p>
           <h2>Inspired by the way parks turn details into emotional memories.</h2>
         </div>
-        <p>
-          Marinthe has a lifelong passion for theme parks and immersive entertainment, with visits to Disney Parks in
-          California, Florida and Paris, Universal Parks in the United States, and many amusement and theme parks
-          throughout Europe and North America. Europa-Park is a particular inspiration for its storytelling,
-          attractions and attention to guest experience.
-        </p>
+        <ul class="passion-list">
+          <li v-for="point in themeParkPassion" :key="point">{{ point }}</li>
+        </ul>
       </section>
 
       <section class="content-section">
@@ -792,6 +831,29 @@ h3 {
   line-height: 1.6;
 }
 
+.achievement-meta {
+  margin-bottom: 12px;
+  color: var(--turquoise-deep);
+  font-weight: 900;
+}
+
+.achievement-card ul,
+.passion-list {
+  margin: 0;
+  padding-left: 19px;
+  color: #4d4d4d;
+  line-height: 1.62;
+}
+
+.achievement-card li + li,
+.passion-list li + li {
+  margin-top: 7px;
+}
+
+.achievement-card li::marker {
+  color: var(--turquoise-deep);
+}
+
 .skills-section {
   position: relative;
   border-top: 1px solid var(--line);
@@ -862,6 +924,16 @@ h3 {
   color: rgba(255, 255, 255, 0.84);
   font-size: 1.05rem;
   line-height: 1.8;
+}
+
+.passion-list {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.passion-list li::marker {
+  color: var(--turquoise);
 }
 
 .contact-section {
