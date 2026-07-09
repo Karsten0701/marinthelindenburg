@@ -66,6 +66,7 @@ const experiences = [
 const achievements = [
   {
     title: 'Student Council President',
+    meta: '2022 - 2023',
     points: [
       'Represented students and acted as a communication link between students and school leadership.',
       'Led meetings and contributed to improving the student experience.',
@@ -83,9 +84,10 @@ const achievements = [
   },
   {
     title: 'Municipal Debate Tournament',
+    meta: '2024 - 2025',
     points: [
-      'Winner of the Municipal Debate Tournament.',
-      'Runner-up in a separate edition.',
+      'Winner of the Municipal Debate Tournament In 2025.',
+      'Runner-up in a separate edition in 2024.',
       'Strengthened public speaking, confidence, critical thinking, and persuasive communication skills.',
     ],
   },
